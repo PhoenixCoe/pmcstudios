@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found | PMC Studios</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F2E4CE">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@font-face{font-family:'Shoulders';src:url('/fonts/BigShouldersDisplay-900.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Plex';src:url('/fonts/IBMPlexMono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Caracteres L2';src:local('Caracteres L2'),local('Caractères L2'),url('/fonts/CaracteresL2.woff2') format('woff2'),url('/fonts/CaracteresL2.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Caracteres L4';src:local('Caracteres L4'),local('Caractères L4'),url('/fonts/CaracteresL4.woff2') format('woff2'),url('/fonts/CaracteresL4.ttf') format('truetype');font-weight:100 900;font-display:swap}
+:root{--ink:#171717;--g1:#337957;--g2:#1A4934;--cream:#F2E4CE;--gold:#B49A57;--d:'Caracteres L2','Shoulders','Arial Narrow',Impact,sans-serif;--t:'Caracteres L4','Plex','Courier New',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink)}
+body{font-family:var(--d);font-weight:400;font-synthesis:none;text-transform:uppercase;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:4px solid var(--g1);outline-offset:4px}
+.tx{font-family:var(--t);text-transform:none}
+#stage{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,48px);will-change:transform;overflow-y:auto;scrollbar-width:none}
+#stage::-webkit-scrollbar{display:none}
+.top{display:flex;justify-content:space-between;align-items:center}
+.top svg{display:block;height:26px;width:46px}
+.top p{font-size:1.1rem}
+.n{display:flex;justify-content:center;gap:clamp(8px,2vw,32px);font-size:min(30vw,52vh);line-height:.8;font-weight:400}
+.n span{display:block;color:var(--ink);text-shadow:.045em .045em 0 var(--g2)}
+.js .n span{transform:translateY(-130%)}
+.js.start .n span{animation:drop .42s cubic-bezier(.55,0,1,.45) forwards;animation-delay:var(--d)}
+@keyframes drop{to{transform:none}}
+.bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;padding-bottom:env(safe-area-inset-bottom,0px)}
+.msg{font-size:clamp(2rem,5vw,4.6rem);line-height:.95;max-width:12ch}
+.msg + .tx{margin-top:12px;font-size:clamp(.95rem,1.2vw,1.2rem);max-width:38ch;line-height:1.55}
+.btn{display:inline-block;padding:18px 30px;background:var(--ink);color:var(--cream);font-size:clamp(1.7rem,2.6vw,2.6rem);line-height:1;letter-spacing:.03em;box-shadow:8px 8px 0 var(--g2);transition:transform .1s,box-shadow .1s,background .1s}
+.btn:hover{background:var(--g1);transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--g2)}
+.btn:active{transition-duration:.04s;transform:translate(6px,6px);box-shadow:2px 2px 0 var(--g2)}
+@media (max-width:700px){.n{font-size:34vw}.bot{flex-direction:column;align-items:flex-start;gap:18px}.msg{font-size:2.7rem}.btn{font-size:1.9rem;padding:14px 22px}}
+@media (prefers-reduced-motion:reduce){.js .n span{transform:none!important;animation:none!important}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<path id="pM" d="M1264.16 741.211L1516.85 3.66211H1741.7V1190.81H1742.03V1281.33H2527.92V1453.42H1569.94V1190.81H1570.31V395.508L1285.4 1192.38L1263.43 1251.96L1241.46 1192.38L958.008 409.424V1192.38H957.979V1453.42H0V1281.33H785.889V3.66211H1012.94L1264.16 741.211Z"/>
+<path id="pC" d="M2221.44 0C2227.29 0 2233.4 0.244141 2239.75 0.732422C2256.84 0.732422 2274.66 1.70898 2293.21 3.66211C2423.1 26.6113 2516.11 118.652 2572.27 279.785L2581.05 323.73L2419.19 367.676C2387.94 279.297 2348.63 220.947 2301.27 192.627C2254.39 163.818 2205.08 163.086 2153.32 190.43C2109.38 217.773 2076.9 259.033 2055.91 314.209C2035.4 368.896 2025.15 458.008 2025.15 581.543C2020.26 659.668 2025.63 737.793 2041.26 815.918C2056.88 894.043 2084.47 949.219 2124.02 981.445C2164.06 1013.18 2216.55 1022.22 2281.49 1008.54C2340.58 985.596 2386.23 926.27 2418.46 830.566L2581.05 878.174C2556.15 977.783 2503.17 1064.94 2422.12 1139.65C2369.87 1177.73 2305.91 1196.78 2230.22 1196.78C2220.95 1197.75 2211.91 1198.24 2203.12 1198.24H2189.21C2073.97 1192.87 1984.86 1129.15 1921.88 1007.08C1876.46 929.443 1852.05 791.504 1848.63 593.262C1848.14 580.078 1847.9 566.895 1847.9 553.711C1848.88 384.766 1875.24 256.104 1927 167.725C1976.81 91.5527 2034.42 43.2129 2099.85 22.7051C2137.94 7.56836 2178.47 0 2221.44 0Z"/>
+<path id="pP" fill-rule="evenodd" clip-rule="evenodd" d="M292.969 4.39453C387.695 4.39453 466.309 27.5879 528.809 73.9746C627.93 146.729 682.861 242.432 693.604 361.084C695.557 382.568 696.533 403.32 696.533 423.34C696.533 528.32 669.678 611.328 615.967 672.363C540.283 766.602 434.57 819.336 298.828 830.566H174.316V1191.65H0.732422L0 4.39453H292.969ZM437.988 220.459C387.695 181.885 336.426 165.283 284.18 170.654H175.049V656.25H292.236C366.943 657.227 426.758 629.15 471.68 572.021C517.09 514.893 534.912 451.172 525.146 380.859C517.334 312.012 488.281 258.545 437.988 220.459Z"/>
+</defs></svg>
+<div id="stage">
+  <div class="top"><a href="/" aria-label="PMC Studios, home"><svg viewBox="0 0 2582 1454" fill="currentColor"><use href="#pM"/><use href="#pC"/><use href="#pP"/></svg></a><p>Error</p></div>
+  <h1 class="n" aria-label="404"><span style="--d:150ms" aria-hidden="true">4</span><span style="--d:450ms" aria-hidden="true">0</span><span style="--d:750ms" aria-hidden="true">4</span></h1>
+  <div class="bot">
+    <div><p class="msg">That page isn’t here.</p><p class="tx">The link might be old, or it might have been typed wrong. The rest of the site is still standing.</p></div>
+    <a class="btn" href="/">Back to PMC</a>
+  </div>
+</div>
+<script>
+(() => {
+  const root = document.documentElement, stage = document.getElementById('stage'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const shake = m => { if (reduce) return; const k = [[0,0],[-1,1],[1,-1],[-.6,.8],[.4,-.4],[0,0]]; stage.animate(k.map(([x,y]) => ({ transform: `translate(${x*m}px,${y*m}px)` })), { duration: 280, easing: 'steps(5, end)' }); };
+  let started = false;
+  const start = () => { if (started) return; started = true; root.classList.add('start'); [570, 870, 1170].forEach((t, i) => setTimeout(() => shake(i === 1 ? 14 : 9), t)); };
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1200))]).then(() => setTimeout(start, 120));
+})();
+</script>
+</body>
+</html>
