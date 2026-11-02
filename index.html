@@ -228,6 +228,10 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
     Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1200))]).then(() => requestAnimationFrame(go));
     try { sessionStorage.setItem('pmc-seen', '1'); } catch (e) {}
   }
+    if (window.location.hash) {
+    // Instantly wipe the hashtag from the URL bar without reloading or scrolling
+    history.replaceState(null, null, window.location.pathname);
+  }
 })();
 </script>
 </body>
