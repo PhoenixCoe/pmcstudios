@@ -85,7 +85,7 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
 .cta:active, a.row:active .cta{transform:translateY(4px)}
 .note{font-size:clamp(.86rem,1vw,1rem);line-height:1.5;opacity:.85;margin-top:14px;max-width:52ch}
 .note a{border-bottom:2px solid currentColor}
-.ast{font-size:.8em;vertical-align:super;line-height:0;margin-left:3px}   /* a small asterisk: <sup class="ast">*</sup> */
+.ast{font-size:.8em;vertical-align:super;line-height:0;margin-left:3px}
 
 .out{position:fixed;top:0;right:0;z-index:10;display:flex}
 .out a{padding:14px clamp(16px,1.8vw,26px);background:var(--ink);color:var(--cream);font-size:1.4rem;letter-spacing:.04em;line-height:1;transition:background .1s,color .1s}
@@ -162,7 +162,6 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
       <div style="--k:0">
         <ul class="list">
           <li><a class="row game" href="https://phoenixcoder.itch.io" target="_blank" rel="noopener"><span class="ic"><b>MM</b><img src="images/game-mm.png" alt="" onerror="this.remove()"></span><div class="rt"><h3>Mini Mayhem</h3><p class="tx">Short, fast and a bit chaotic.</p></div><span class="cta">Play</span></a></li>
-          <!-- More games: copy the whole <li><a class="row game" ...> line above and change the name, text, icon and link. -->
         </ul>
         <p class="note tx">It’s my only game so far.</p>
       </div>
@@ -180,7 +179,6 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
           <li><a class="row proj" href="/work/alumni"><span class="th"><img src="images/work/alumni-1.jpg" alt=""></span><div class="rt"><h3>Alumni</h3><p class="tx">A brand new site for keeping former students in touch.</p></div><span class="cta">Case study</span></a></li>
         </ul>
         <p class="note tx">Three websites that I have made for Ipswich Academy, which are in the process of being adopted.</p>
-        <!-- Footnotes: put <sup class="ast">*</sup> after a word above, then add a line here such as: <p class="note tx"><sup class="ast">*</sup> Your note.</p> -->
       </div>
       <h2 class="ht" style="--k:1" aria-hidden="true">Projects</h2>
     </div>
@@ -196,21 +194,29 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
   const root = document.documentElement, pns = [...document.querySelectorAll('.pn')];
   let seen = false; try { seen = sessionStorage.getItem('pmc-seen') === '1'; } catch (e) {}
 
-  /* the tab icon takes the colours of whichever block is open */
   const PAL = [['#F2E4CE', '#171717'], ['#1A4934', '#F2E4CE'], ['#171717', '#F2E4CE'], ['#B49A57', '#171717']];
   const paint = i => { if (window.pmcFavicon) pmcFavicon(PAL[i][0], PAL[i][1]); };
 
-  /* open one block. 'animate' controls the little entrance of its contents. */
   const open = (i, push = true, animate = true) => {
-    pns.forEach((p, j) => { const on = j === i; p.classList.toggle('on', on); p.classList.toggle('anim', on && animate); p.querySelector('.vt').setAttribute('aria-expanded', on); });
+    pns.forEach((p, j) => { 
+      const on = j === i; 
+      p.classList.toggle('on', on); 
+      p.classList.toggle('anim', on && animate); 
+      p.querySelector('.vt').setAttribute('aria-expanded', on); 
+    });
     paint(i);
-    if (push) history.replaceState(null, '', i ? '#' + pns[i].id : location.pathname + location.search);
+    if (push) {
+      const url = i ? `${location.pathname}?panel=${pns[i].id}` : location.pathname;
+      history.replaceState(null, '', url);
+    }
   };
+
   pns.forEach((p, i) => p.addEventListener('click', e => {
     if (p.classList.contains('on')) return;
     e.preventDefault(); open(i);
-    if (e.detail === 0) p.querySelector('.body').focus({ preventScroll: true });   // opened from the keyboard
+    if (e.detail === 0) p.querySelector('.body').focus({ preventScroll: true });
   }));
+
   addEventListener('keydown', e => {
     const cur = pns.findIndex(p => p.classList.contains('on')); let n = cur;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = Math.min(pns.length - 1, cur + 1);
@@ -218,19 +224,26 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
     e.preventDefault(); open(n); pns[n].querySelector('.vt').focus({ preventScroll: true });
   });
 
-  /* a refresh, or coming back from a case study, lands on the same block, with no replayed intro */
-  const fromHash = () => { const i = pns.findIndex(p => '#' + p.id === location.hash); return i < 0 ? 0 : i; };
-  addEventListener('hashchange', () => open(fromHash(), false));
-  const h = fromHash(); if (h > 0) open(h, false, !seen); else paint(0);
-  if (seen) { root.classList.add('skip'); pns.forEach(p => p.classList.remove('anim')); }
-  else {
+  const fromQuery = () => {
+    const params = new URLSearchParams(location.search);
+    const panelId = params.get('panel');
+    const i = pns.findIndex(p => p.id === panelId);
+    return i < 0 ? 0 : i;
+  };
+
+  addEventListener('popstate', () => open(fromQuery(), false));
+
+  const h = fromQuery(); 
+  if (h > 0) open(h, false, !seen); 
+  else paint(0);
+
+  if (seen) { 
+    root.classList.add('skip'); 
+    pns.forEach(p => p.classList.remove('anim')); 
+  } else {
     const go = () => { if (!root.classList.contains('start')) root.classList.add('start'); };
     Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1200))]).then(() => requestAnimationFrame(go));
     try { sessionStorage.setItem('pmc-seen', '1'); } catch (e) {}
-  }
-    if (window.location.hash) {
-    // Instantly wipe the hashtag from the URL bar without reloading or scrolling
-    history.replaceState(null, null, window.location.pathname);
   }
 })();
 </script>
