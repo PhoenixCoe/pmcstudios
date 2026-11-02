@@ -194,29 +194,21 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
   const root = document.documentElement, pns = [...document.querySelectorAll('.pn')];
   let seen = false; try { seen = sessionStorage.getItem('pmc-seen') === '1'; } catch (e) {}
 
+  /* the tab icon takes the colours of whichever block is open */
   const PAL = [['#F2E4CE', '#171717'], ['#1A4934', '#F2E4CE'], ['#171717', '#F2E4CE'], ['#B49A57', '#171717']];
   const paint = i => { if (window.pmcFavicon) pmcFavicon(PAL[i][0], PAL[i][1]); };
 
+  /* open one block. 'animate' controls the little entrance of its contents. */
   const open = (i, push = true, animate = true) => {
-    pns.forEach((p, j) => { 
-      const on = j === i; 
-      p.classList.toggle('on', on); 
-      p.classList.toggle('anim', on && animate); 
-      p.querySelector('.vt').setAttribute('aria-expanded', on); 
-    });
+    pns.forEach((p, j) => { const on = j === i; p.classList.toggle('on', on); p.classList.toggle('anim', on && animate); p.querySelector('.vt').setAttribute('aria-expanded', on); });
     paint(i);
-    if (push) {
-      const url = i ? `${location.pathname}?panel=${pns[i].id}` : location.pathname;
-      history.replaceState(null, '', url);
-    }
+    if (push) history.replaceState(null, '', location.pathname + location.search);
   };
-
   pns.forEach((p, i) => p.addEventListener('click', e => {
     if (p.classList.contains('on')) return;
     e.preventDefault(); open(i);
-    if (e.detail === 0) p.querySelector('.body').focus({ preventScroll: true });
+    if (e.detail === 0) p.querySelector('.body').focus({ preventScroll: true });   // opened from the keyboard
   }));
-
   addEventListener('keydown', e => {
     const cur = pns.findIndex(p => p.classList.contains('on')); let n = cur;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = Math.min(pns.length - 1, cur + 1);
@@ -224,26 +216,19 @@ a.row:hover .cta{background:var(--g1);color:var(--cream)}
     e.preventDefault(); open(n); pns[n].querySelector('.vt').focus({ preventScroll: true });
   });
 
-  const fromQuery = () => {
-    const params = new URLSearchParams(location.search);
-    const panelId = params.get('panel');
-    const i = pns.findIndex(p => p.id === panelId);
-    return i < 0 ? 0 : i;
-  };
-
-  addEventListener('popstate', () => open(fromQuery(), false));
-
-  const h = fromQuery(); 
-  if (h > 0) open(h, false, !seen); 
-  else paint(0);
-
-  if (seen) { 
-    root.classList.add('skip'); 
-    pns.forEach(p => p.classList.remove('anim')); 
-  } else {
+  /* a refresh, or coming back from a case study, lands on the same block, with no replayed intro */
+  const fromHash = () => { const i = pns.findIndex(p => '#' + p.id === location.hash); return i < 0 ? 0 : i; };
+  addEventListener('hashchange', () => open(fromHash(), false));
+  const h = fromHash(); if (h > 0) open(h, false, !seen); else paint(0);
+  if (seen) { root.classList.add('skip'); pns.forEach(p => p.classList.remove('anim')); }
+  else {
     const go = () => { if (!root.classList.contains('start')) root.classList.add('start'); };
     Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1200))]).then(() => requestAnimationFrame(go));
     try { sessionStorage.setItem('pmc-seen', '1'); } catch (e) {}
+  }
+  if (window.location.hash) {
+    // Instantly wipe the hashtag from the URL bar without reloading or scrolling
+    history.replaceState(null, null, window.location.pathname);
   }
 })();
 </script>
