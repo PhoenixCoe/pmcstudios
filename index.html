@@ -78,14 +78,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .now{list-style:none}.now li{padding:clamp(10px,1.2vw,18px) 0;border-top:2px solid currentColor;font-size:clamp(.92rem,1.6vw,1.9rem);line-height:1.4}
 .chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .chips li{padding:6px 12px;border:2px solid currentColor;font-size:1.1rem;line-height:1;box-shadow:4px 4px 0 var(--sh);transition:transform .1s var(--x),box-shadow .1s,background .1s,color .1s;cursor:default}
-.chips li:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--sh);background:var(--fg);color:var(--bg)}
+.chips li:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--sh);background:var(--fg);color:var(--bg)}
 .chips.links li{padding:0;cursor:pointer;font-size:clamp(1.1rem,1.6vw,1.9rem)}.chips.links a{display:block;padding:.35em .7em}.lab.find{margin:18px 0 0}
-.chips li:active{transition-duration:.04s;transform:translate(2px,2px);box-shadow:2px 2px 0 var(--sh)}
+.chips li:active{transition-duration:.04s;transform:translate(1px,1px);box-shadow:2px 2px 0 var(--sh)}
 
 /* buttons */
 .cta{display:inline-flex;align-items:center;padding:11px 18px;background:var(--fg);color:var(--bg);font-size:clamp(1.15rem,1.5vw,1.5rem);line-height:1;letter-spacing:.03em;transition:background .1s,color .1s,transform .1s}
-.cta:hover{background:var(--g1);color:var(--cream)}
-.cta:active{transform:translateY(4px)}
+.cta:hover{background:var(--g1);color:var(--cream);transform:translate(-2px,-2px)}
+.cta:active{transform:translate(1px,1px)}
 .note{font-size:clamp(.86rem,1vw,1rem);line-height:1.5;opacity:.85;margin-top:14px;max-width:52ch}
 .note a{border-bottom:2px solid currentColor}
 
@@ -104,8 +104,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .tiles{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.5vw,22px)}
 .tiles.t3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .tile{display:flex;flex-direction:column;height:100%;border:3px solid currentColor;background:var(--bg);box-shadow:7px 7px 0 var(--sh);transition:transform .1s var(--x),box-shadow .1s}
-.tile:hover{transform:translate(-4px,-4px);box-shadow:11px 11px 0 var(--sh)}
-.tile:active{transition-duration:.04s;transform:translate(5px,5px);box-shadow:2px 2px 0 var(--sh)}
+.tile:hover{transform:translate(-2px,-2px);box-shadow:11px 11px 0 var(--sh)}
+.tile:active{transition-duration:.04s;transform:translate(1px,1px);box-shadow:2px 2px 0 var(--sh)}
 .tile .th{display:block;aspect-ratio:16/10;border-bottom:3px solid currentColor;overflow:hidden;background:var(--fg)}
 .tile .th img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .tile .th.lg{display:flex;align-items:center;justify-content:center;background:var(--g2)}.tile .th.lg img{width:clamp(56px,5.4vw,88px);height:auto;aspect-ratio:1;object-fit:contain}
@@ -162,6 +162,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .ap .cta{padding:clamp(8px,.8vw,14px) clamp(14px,1.4vw,26px);font-size:clamp(1.15rem,1.6vw,2rem)}
 .ap .grp+.grp{margin-top:clamp(18px,3vh,30px)}
 @media (max-width:800px){@media (prefers-reduced-motion:reduce){.pn.on.anim .body>*{animation:none}.pn{transition:none}.dots{transition:none}}
+/* PMC press: every button lifts on hover and presses down on click, exactly like the account button */
+:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]){transition-property:transform,box-shadow,background-color,color,border-color,opacity;transition-duration:.14s;transition-timing-function:cubic-bezier(.16,1,.3,1)}
+:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]):hover{transform:translate(-2px,-2px)!important}
+:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]):active{transform:translate(1px,1px)!important;transition-duration:.04s}
+@media (hover:none){:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]):hover{transform:none!important}}
+@media (prefers-reduced-motion:reduce){:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]){transform:none!important;transition:none}:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]):hover,:is(button,[role=button],input[type=button],input[type=submit],summary,.btn,.pa-btn,.pb-btn,.tb-back,.btn-ic):not(:disabled,[aria-disabled=true],[role=menuitem],[role=option],.pa-row,[style*=transform]):active{transform:none!important}}
 </style>
 </head>
 <body>
