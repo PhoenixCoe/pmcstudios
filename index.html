@@ -90,7 +90,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .note a{border-bottom:2px solid currentColor}
 
 /* apps: the PMC apps as tiles, then one plate */
-.plates{list-style:none;display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);width:min(100%,1100px)}
+.plates{list-style:none;display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);width:min(100%,640px)}
 .plate{display:grid;grid-template-columns:clamp(110px,14vw,200px) minmax(0,1fr);gap:clamp(16px,2.2vw,32px);align-items:center;padding:clamp(14px,1.8vw,24px);border:3px solid currentColor;box-shadow:9px 9px 0 var(--sh)}
 .plate .pic{display:block;border:4px solid currentColor;box-shadow:6px 6px 0 var(--g1);overflow:hidden;aspect-ratio:1}
 .plate .pic img{display:block;width:100%;height:100%;object-fit:cover}
@@ -148,16 +148,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 }
 /* apps: just the icon, whole, next to its name */
 .ap .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
-.ap .tile{flex-direction:row;align-items:center;gap:clamp(14px,1.6vw,26px);padding:clamp(12px,1.5vw,26px) clamp(14px,1.7vw,30px);box-shadow:5px 5px 0 var(--sh)}
-.ap .tile .th{display:block;width:clamp(48px,6.4vw,110px);flex:none;aspect-ratio:1;border:0;background:none;overflow:visible}
+.ap .tile{flex-direction:row;align-items:center;gap:clamp(14px,1.6vw,26px);padding:clamp(10px,min(1.5vw,1.9vh),26px) clamp(14px,1.7vw,30px);box-shadow:5px 5px 0 var(--sh)}
+.ap .tile .th{display:block;width:clamp(48px,min(6.4vw,9vh),110px);flex:none;aspect-ratio:1;border:0;background:none;overflow:visible}
 .ap .tile .th img{width:100%;height:100%;object-fit:contain}
 .ap .tile .tt{padding:0;min-width:0}
-.ap .tile b{font-size:clamp(1.3rem,2.3vw,2.8rem)}
-.ap .tile small{font-size:clamp(.78rem,1.25vw,1.5rem);display:block;overflow:visible}
-.ap .plate{grid-template-columns:clamp(72px,10vw,180px) minmax(0,1fr);padding:clamp(12px,1.5vw,26px) clamp(14px,1.7vw,30px);box-shadow:6px 6px 0 var(--sh);gap:clamp(14px,1.6vw,22px)}
+.ap .tile b{font-size:clamp(1.3rem,min(2.3vw,3.7vh),2.8rem)}
+.ap .tile small{font-size:clamp(.78rem,min(1.25vw,2vh),1.5rem);display:block;overflow:visible}
+.ap .plate{grid-template-columns:clamp(72px,min(6.4vw,11vh),110px) minmax(0,1fr);padding:clamp(10px,min(1.1vw,1.5vh),18px) clamp(14px,1.4vw,22px);box-shadow:6px 6px 0 var(--sh);gap:clamp(14px,1.6vw,22px)}
 .ap .plate .pic{border-width:3px;box-shadow:4px 4px 0 var(--g1)}
-.ap .plate h3{font-size:clamp(1.6rem,3vw,3.6rem)}
-.ap .plate p{font-size:clamp(.85rem,1.4vw,1.7rem);margin:6px 0 10px}
+.ap .plate h3{font-size:clamp(1.6rem,min(2.3vw,3.7vh),2.8rem)}
+.ap .plate p{font-size:clamp(.85rem,min(1.15vw,1.9vh),1.4rem);margin:6px 0 10px}
 .ap .cta{padding:clamp(8px,.8vw,14px) clamp(14px,1.4vw,26px);font-size:clamp(1.15rem,1.6vw,2rem)}
 .ap .grp+.grp{margin-top:clamp(18px,3vh,30px)}
 @media (max-width:800px){@media (prefers-reduced-motion:reduce){.pn.on.anim .body>*{animation:none}.pn{transition:none}.dots{transition:none}}
@@ -213,6 +213,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
     <div class="body" id="apps-body" tabindex="-1">
       <div style="--k:0">
         <div class="grp">
+          <p class="lab">PMC apps</p>
           <ul class="tiles">
             <li><a class="tile" href="https://coe.pmcstudios.uk/" target="_blank" rel="noopener"><span class="th lg"><img src="images/apps/logo-coe.svg" alt="" width="64" height="64"></span><span class="tt"><b>Coe</b><small class="tx">A study helper that explains, checks and quizzes.</small></span></a></li>
             <li><a class="tile" href="https://coe.pmcstudios.uk/about/" target="_blank" rel="noopener"><span class="th lg"><img src="images/apps/logo-mini.svg" alt="" width="64" height="64"></span><span class="tt"><b>Coe Mini</b><small class="tx">Coe in the side of your browser, next to the page you are on.</small></span></a></li>
@@ -221,6 +222,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
           </ul>
         </div>
         <div class="grp">
+          <p class="lab">Also made</p>
           <ul class="plates">
             <li class="plate">
               <span class="pic"><img src="images/mini-mayhem.png" alt="A golf ball with an arrow showing where it will go, on a green course" width="432" height="432"></span>
