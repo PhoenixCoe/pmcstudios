@@ -69,7 +69,7 @@
     var u = saved();
     if (u && window.PmcAccount) {
       PmcAccount.mount(btn, function () {
-        return { user: u, others: [], manage: ID + '/info/', addAccount: ID + '/add/',
+        return { user: u, others: [], manage: ID + '/info/?from=studios', addAccount: ID + '/add/?from=studios',
           onSignOut: function () { try { localStorage.removeItem(USER); } catch (e) { /* ignore */ } paint(); } };
       });
     } else {
