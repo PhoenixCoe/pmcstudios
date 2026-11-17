@@ -73,7 +73,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .lead{font-size:clamp(1.8rem,3.4vw,3.6rem);line-height:.95}
 .cols .tx{font-size:clamp(.98rem,1.2vw,1.2rem);line-height:1.6}
 .cols p+p{margin-top:14px}
-.partner a{border-bottom:3px solid currentColor;transition:background .1s,color .1s}.partner a:hover{background:var(--fg);color:var(--bg)}
+.partner{margin-top:22px}.partner a{border-bottom:3px solid currentColor;transition:background .1s,color .1s}.partner a:hover{background:var(--fg);color:var(--bg)}
 .lab{font-size:1.3rem;margin-bottom:10px;opacity:.7}
 .now{list-style:none}.now li{padding:10px 0;border-top:2px solid currentColor;font-size:clamp(.92rem,1.1vw,1.1rem);line-height:1.45}
 .chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
@@ -135,7 +135,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
 .dots{width:80vw}
 .logo{width:min(78%,24vh*1.776)}
 .big{font-size:min(11vw,8vh);max-width:none}
-.cols{grid-template-columns:1fr}
+.cols{grid-template-columns:1fr;gap:34px}
 .lead{font-size:2rem}
 .plate{grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:start}.plate h3{font-size:2rem}
 .tiles,.tiles.t3{grid-template-columns:1fr;gap:10px}
@@ -194,15 +194,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-t
       <div class="cols" style="--k:0">
         <div>
           <p class="lead">I design things, then I build them.</p>
-          <p class="tx" style="margin-top:18px">I’m Phoenix Coe. I make apps and websites, and I design all sorts, from interfaces and typefaces to road signs and even whole countries. I build most of what I design, because I like seeing it work.</p>
-          <p class="tx partner">PMC is partnered with <a href="https://riversoftstudios.github.io/river-site/" target="_blank" rel="noopener">River</a>, a studio run by a friend of mine.</p>
+          <p class="tx" style="margin-top:18px">I’m Phoenix Coe. I make apps and websites, from interfaces and typefaces to road signs, and I build most of what I design because I like seeing it work.</p>
+          <ul class="chips links"><li><a href="https://youtube.com/@PhoenixsLab" target="_blank" rel="noopener">YouTube</a></li><li><a href="https://phoenixcoder.itch.io" target="_blank" rel="noopener">itch.io</a></li></ul>
         </div>
         <div>
           <p class="lab">Right now</p>
-          <ul class="now tx"><li>Building Coe, a study helper, and Coe Mini, the same helper in your browser.</li><li>Writing a language called Velari, and drawing a typeface for it.</li><li>Building a made-up country, Verduva.</li><li>Making a 3D app where you can hear a song’s parts spread out around you.</li></ul>
-          <ul class="chips"><li>Front-end</li><li>Apps</li><li>Motion</li><li>Typography</li><li>Worldbuilding</li></ul>
-          <p class="lab find">Find me</p>
-          <ul class="chips links"><li><a href="https://youtube.com/@PhoenixsLab" target="_blank" rel="noopener">YouTube</a></li><li><a href="https://phoenixcoder.itch.io" target="_blank" rel="noopener">itch.io</a></li></ul>
+          <ul class="now tx"><li>Building Coe, a study helper, and Coe Mini, the same helper in your browser.</li><li>Making a 3D app where you can hear a song’s parts spread out around you.</li></ul>
+          <p class="tx partner">PMC is partnered with <a href="https://riversoftstudios.github.io/river-site/" target="_blank" rel="noopener">River</a>, a studio run by a friend of mine.</p>
         </div>
       </div>
       <h2 class="ht" style="--k:1" aria-hidden="true">About</h2>
