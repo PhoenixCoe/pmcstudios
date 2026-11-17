@@ -65,13 +65,14 @@
 
   function paint() {
     var old = document.getElementById('acct'); if (!old) return;
-    var btn = old.cloneNode(false); old.replaceWith(btn);       // a fresh button, with no old click handlers
+    var btn = old.cloneNode(false); btn.className = 'pa-btn'; old.replaceWith(btn);       // a fresh button, with no old click handlers
     var u = saved();
     if (u && window.PmcAccount) {
       PmcAccount.mount(btn, function () {
         return { user: u, others: [], manage: ID + '/info/?from=studios', addAccount: ID + '/add/?from=studios',
           onSignOut: function () { try { localStorage.removeItem(USER); } catch (e) { /* ignore */ } paint(); } };
       });
+      if (PmcAccount.paint) PmcAccount.paint(btn, u.img);   // the button takes the colour of the picture
     } else {
       btn.className = 'pa-btn pa-out'; btn.setAttribute('aria-label', 'Sign in with PMC ID'); btn.innerHTML = USER_ICON;
       btn.addEventListener('click', startSignIn);

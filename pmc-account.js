@@ -31,7 +31,7 @@
     '--pa-font:"PMC Symbols L4 Upright","PMC Font Upright","PMC Font","Plex","Courier New",monospace;--pa-head:"PMC Symbols L2","PMC Header","Shoulders","Arial Narrow",Impact,sans-serif;--pa-case:uppercase}',
     '.pa-look-flat{--pa-frame:1px;--pa-lift:0px;--pa-radius:0px;--pa-head:system-ui,sans-serif;--pa-font:system-ui,sans-serif;--pa-case:none}',
     '.pa-look-round{--pa-frame:1px;--pa-lift:0px;--pa-radius:14px;--pa-head:system-ui,sans-serif;--pa-font:system-ui,sans-serif;--pa-case:none}',
-    '.pa-btn{display:grid;place-items:center;width:40px;height:40px;padding:0;overflow:hidden;background:#B49A57;color:var(--pa-ink);border:var(--pa-frame) solid var(--pa-ink);border-radius:var(--pa-radius);cursor:pointer;font:400 20px/1 var(--pa-head);text-transform:uppercase}',
+    '.pa-btn{display:grid;place-items:center;width:40px;height:40px;padding:0;overflow:hidden;background:var(--pa-cbg,#B49A57);color:var(--pa-cfg,var(--pa-ink));border:var(--pa-frame) solid var(--pa-ink);border-radius:var(--pa-radius);cursor:pointer;font:400 20px/1 var(--pa-head);text-transform:uppercase}',
     '.pa-btn:hover,.pa-btn[aria-expanded=true],.pa-btn:focus-visible{outline:none;box-shadow:3px 3px 0 var(--pa-shadow)}.pa-pop :focus-visible{outline:none}.pa-foot a:focus-visible{background:var(--pa-accent);color:#FBF6EC;text-decoration:none;opacity:1}',
     '.pa-btn img,.pa-av img{width:100%;height:100%;object-fit:cover;display:block}',
     '.pa-pop{position:fixed;z-index:2147483000;width:min(380px,calc(100vw - 16px));box-sizing:border-box;background:var(--pa-paper);color:var(--pa-ink);border:var(--pa-frame) solid var(--pa-ink);border-radius:var(--pa-radius);box-shadow:var(--pa-lift) var(--pa-lift) 0 var(--pa-shadow);font:400 14px/1.35 var(--pa-font);font-synthesis:none;overflow:hidden;transition:height .26s cubic-bezier(.16,1,.3,1);animation:pa-up .18s cubic-bezier(.16,1,.3,1)}',
@@ -63,7 +63,7 @@
     '.pa-look-flat .pa-row,.pa-look-round .pa-row{font-size:15px;font-weight:500;letter-spacing:0}',
     '.pa-row:first-child{border-top:0}',
     '.pa-row:hover,.pa-row:focus-visible{background:var(--pa-ink);color:var(--pa-paper);outline:none}',
-    '.pa-row.out{color:var(--pa-danger)}.pa-row.out:hover,.pa-row.out:focus-visible{background:var(--pa-danger);color:#FBF6EC}',
+    '.pa-row.pa-so{color:var(--pa-danger)}.pa-row.pa-so:hover,.pa-row.pa-so:focus-visible{background:var(--pa-danger);color:#FBF6EC}',
     '.pa-fl{display:grid;width:38px;flex:none}.pa-fl svg{width:100%;height:auto;display:block}.pa-fk{display:flex;gap:6px}.pa-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;padding:2px 0 0;font-size:11.5px;line-height:1.4}',
         '.pa-foot a{color:inherit;text-decoration:none;opacity:.85}.pa-foot a:hover{text-decoration:underline;opacity:1}',
     '@media (prefers-reduced-motion:reduce){.pa-pop{animation:none;transition:none}}',
@@ -138,7 +138,7 @@
     h += '</div>';
     h += '<div class="pa-grp">';
     h += '<a class="pa-row" href="' + esc(o.addAccount || 'https://id.pmcstudios.uk/?add=1') + '">' + svg(I.plus) + 'Add account</a>';
-    h += '<button class="pa-row out" type="button" data-pa="out">' + svg(I.out) + 'Sign out</button>';
+    h += '<button class="pa-row pa-so" type="button" data-pa="out">' + svg(I.out) + 'Sign out</button>';
     h += '</div>';
     h += '<div class="pa-grp"><a class="pa-row" href="' + esc(o.manage || 'https://id.pmcstudios.uk/info') + '">' + svg(I.pen) + 'Manage PMC ID</a></div>';
     if (o.onSettings) h += '<div class="pa-grp"><button class="pa-row" type="button" data-pa="settings">' + svg(I.gear) + 'Settings</button></div>';
