@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found | PMC Studios</title>
+<title>Not Found - PMC Studios</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#F2E4CE">
+<meta name="theme-color" content="#FBF6EC">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
-@font-face{font-family:'Shoulders';src:url('/fonts/BigShouldersDisplay-900.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Plex';src:url('/fonts/IBMPlexMono-400.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'Caracteres L2';src:local('Caracteres L2'),local('Caractères L2'),url('/fonts/CaracteresL2.woff2') format('woff2'),url('/fonts/CaracteresL2.ttf') format('truetype');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Caracteres L4';src:local('Caracteres L4'),local('Caractères L4'),url('/fonts/CaracteresL4.woff2') format('woff2'),url('/fonts/CaracteresL4.ttf') format('truetype');font-weight:100 900;font-display:swap}
-:root{--ink:#171717;--g1:#337957;--g2:#1A4934;--cream:#F2E4CE;--gold:#B49A57;--d:'Caracteres L2','Shoulders','Arial Narrow',Impact,sans-serif;--t:'Caracteres L4','Plex','Courier New',monospace}
+@font-face {font-family: 'Shoulders'; src: url('/fonts/BigShouldersDisplay-900.woff2') format('woff2'); font-weight: 100 900; font-display: swap;}
+@font-face {font-family: 'Plex'; src: url('/fonts/IBMPlexMono-400.woff2') format('woff2'); font-weight: 400; font-display: swap;}
+@font-face {font-family: 'PMC Symbols L2'; src: url('/fonts/PMCSymbolsL2.woff2') format('woff2'); unicode-range: U+0022,U+0023,U+0024,U+0025,U+0026,U+0027,U+002A,U+003C,U+003E,U+003F,U+0040,U+005B,U+005D,U+005E,U+005F,U+0060,U+007B,U+007C,U+007D,U+007E,U+00A1,U+00A3,U+00A9,U+00AB,U+00AE,U+00B0,U+00B1,U+00B7,U+00BB,U+00BF,U+00D7,U+00F7,U+2013,U+2014,U+2018,U+2019,U+201C,U+201D,U+2022,U+2026,U+2190,U+2191,U+2192,U+2193,U+2212,U+2713; font-display: swap;}
+@font-face {font-family: 'PMC Symbols L4'; src: url('/fonts/PMCSymbolsL4.woff2') format('woff2'); unicode-range: U+0022,U+0023,U+0024,U+0025,U+0026,U+0027,U+002A,U+003C,U+003E,U+003F,U+0040,U+005B,U+005D,U+005E,U+005F,U+0060,U+007B,U+007C,U+007D,U+007E,U+00A1,U+00A3,U+00A9,U+00AB,U+00AE,U+00B0,U+00B1,U+00B7,U+00BB,U+00BF,U+00D7,U+00F7,U+2013,U+2014,U+2018,U+2019,U+201C,U+201D,U+2022,U+2026,U+2190,U+2191,U+2192,U+2193,U+2212,U+2713; font-display: swap;}
+@font-face {font-family: 'PMC Symbols L4 Upright'; src: url('/fonts/PMCSymbolsL4Upright.woff2') format('woff2'); unicode-range: U+0022,U+0023,U+0024,U+0025,U+0026,U+0027,U+002A,U+003C,U+003E,U+003F,U+0040,U+005B,U+005D,U+005E,U+005F,U+0060,U+007B,U+007C,U+007D,U+007E,U+00A1,U+00A3,U+00A9,U+00AB,U+00AE,U+00B0,U+00B1,U+00B7,U+00BB,U+00BF,U+00D7,U+00F7,U+2013,U+2014,U+2018,U+2019,U+201C,U+201D,U+2022,U+2026,U+2190,U+2191,U+2192,U+2193,U+2212,U+2713; font-display: swap;}
+@font-face {font-family: 'PMC Header'; src: local('PMC Header'), local('Caracteres L2'), local('Caractères L2'), url('/fonts/PMCHeader.woff2') format('woff2'); font-weight: 100 900; font-display: swap;}
+@font-face {font-family: 'PMC Font'; src: local('PMC Font'), local('Caracteres L4'), local('Caractères L4'), url('/fonts/PMCFont.woff2') format('woff2'); font-weight: 100 900; font-display: swap;}
+@font-face {font-family: 'PMC Font Upright'; src: url('/fonts/PMCFontUpright.woff2') format('woff2'); font-weight: 100 900; font-display: swap;}
+:root{--ink:#171717;--g1:#337957;--g2:#1A4934;--cream:#FBF6EC;--gold:#B49A57;--d:'PMC Symbols L2','PMC Header','Shoulders','Arial Narrow',Impact,sans-serif;--t:'PMC Symbols L4 Upright','PMC Symbols L4','PMC Font Upright','PMC Font','Plex','Courier New',monospace}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink)}
 body{font-family:var(--d);font-weight:400;font-synthesis:none;text-transform:uppercase;-webkit-font-smoothing:antialiased}
@@ -22,8 +26,10 @@ a{color:inherit;text-decoration:none}
 #stage{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,48px);will-change:transform;overflow-y:auto;scrollbar-width:none}
 #stage::-webkit-scrollbar{display:none}
 .top{display:flex;justify-content:space-between;align-items:center}
-.top svg{display:block;height:26px;width:46px}
+.top svg{display:block;height:40px;width:71px}
 .top p{font-size:1.1rem}
+.topr{display:flex;align-items:center;gap:16px}
+.topr .pa-btn{width:44px;height:44px;border:3px solid var(--ink);background:var(--cream);color:var(--ink);box-shadow:none}.topr .pa-btn:hover,.topr .pa-btn[aria-expanded=true]{background:var(--ink);color:var(--cream);box-shadow:none}.topr .pa-btn img{width:100%;height:100%;object-fit:cover}
 .n{display:flex;justify-content:center;gap:clamp(8px,2vw,32px);font-size:min(30vw,52vh);line-height:.8;font-weight:400}
 .n span{display:block;color:var(--ink);text-shadow:.045em .045em 0 var(--g2)}
 .js .n span{transform:translateY(-130%)}
@@ -47,7 +53,7 @@ a{color:inherit;text-decoration:none}
 <path id="pP" fill-rule="evenodd" clip-rule="evenodd" d="M292.969 4.39453C387.695 4.39453 466.309 27.5879 528.809 73.9746C627.93 146.729 682.861 242.432 693.604 361.084C695.557 382.568 696.533 403.32 696.533 423.34C696.533 528.32 669.678 611.328 615.967 672.363C540.283 766.602 434.57 819.336 298.828 830.566H174.316V1191.65H0.732422L0 4.39453H292.969ZM437.988 220.459C387.695 181.885 336.426 165.283 284.18 170.654H175.049V656.25H292.236C366.943 657.227 426.758 629.15 471.68 572.021C517.09 514.893 534.912 451.172 525.146 380.859C517.334 312.012 488.281 258.545 437.988 220.459Z"/>
 </defs></svg>
 <div id="stage">
-  <div class="top"><a href="/" aria-label="PMC Studios, home"><svg viewBox="0 0 2582 1454" fill="currentColor"><use href="#pM"/><use href="#pC"/><use href="#pP"/></svg></a><p>Error</p></div>
+  <div class="top"><a href="/" aria-label="PMC Studios, home"><svg viewBox="0 0 2582 1454" fill="currentColor"><use href="#pM"/><use href="#pC"/><use href="#pP"/></svg></a><div class="topr"><p>Error</p><button class="pa-btn pa-out" id="acct" type="button" aria-label="Sign in with PMC ID"></button></div></div>
   <h1 class="n" aria-label="404"><span style="--d:150ms" aria-hidden="true">4</span><span style="--d:450ms" aria-hidden="true">0</span><span style="--d:750ms" aria-hidden="true">4</span></h1>
   <div class="bot">
     <div><p class="msg">That page isn’t here.</p><p class="tx">The link might be old, or it might have been typed wrong. The rest of the site is still standing.</p></div>
@@ -63,5 +69,9 @@ a{color:inherit;text-decoration:none}
   Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 1200))]).then(() => setTimeout(start, 120));
 })();
 </script>
+<script src="/pmc-logo.js"></script>
+<script src="/pmc-account.js"></script>
+<script src="/account-config.js"></script>
+<script src="/account.js"></script>
 </body>
 </html>
